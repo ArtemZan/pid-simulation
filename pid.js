@@ -1,12 +1,9 @@
 
 let x = 100;
 let v = 0;
-let targetA = 0;
 let a = 0;
 const aMax = 9000;
 let integral = 0;
-
-const reactivity = 300;
 
 let ctx
 
@@ -19,12 +16,6 @@ function formatNumber(n) {
 
 let iterations = 0;
 
-function setThrottle(value) {
-    setTimeout(() => {
-        a = value
-    }, 10)
-}
-
 function render() {
     const point = document.getElementById("point")
     const dt = 0.01
@@ -33,26 +24,13 @@ function render() {
         iterations++;
 
 
-        targetA = Math.max(Math.min(P * x + I * integral + D * v, aMax), -aMax)
+        a = Math.max(Math.min(P * x + I * integral + D * v, aMax), -aMax)
         console.log(a, P * x, D * v)
 
         integral += x * dt;
         x += v * dt;
         v += a * dt;
-        a = (Math.abs(targetA - a) < reactivity * dt) ? targetA : (a + Math.sign(targetA - a) * reactivity * dt)
 
-        // if (iterations % 1000 === 0) {
-        //     // Simulate some random external impulse
-        //     // Probability distribution = 50% / second
-        //     const vErrorChance = 0
-        //     const vErrorAmplitude = 150
-        //     const vError = (Math.random() - 0.5) * 2 * vErrorAmplitude
-
-        //     if (Math.random() < vErrorChance) {
-        //         console.log("Push: ", vError)
-        //         v += vError
-        //     }
-        // }
         ctx.strokeStyle = "rgba(0, 120, 0, 0.5)"
         ctx.beginPath();
         ctx.moveTo(iterations / 1, 600);
