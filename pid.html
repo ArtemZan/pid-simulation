@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            padding: 50px;
+        }
+
+        #point {
+            border-radius: 5px;
+            background-color: #008800;
+            width: 5px;
+            height: 5px;
+            position: fixed;
+            z-index: 2;
+        }
+
+        #origin {
+            border-radius: 5px;
+            background-color: black;
+            width: 5px;
+            height: 5px;
+            position: fixed;
+            left: 200px;
+        }
+
+        #data {
+            margin-bottom: 20px;
+        }
+
+        #data td {
+            min-width: 50px;
+            border: 1px solid black;
+            text-align: right;
+        }
+
+        #canvas {
+            margin-top: 100px;
+        }
+    </style>
+
+    <script src="pid.js"></script>
+</head>
+<body>
+    <table id="data">
+        <thead>
+            <tr>
+                <td>x</td>
+                <td>v</td>
+                <td>a</td>
+                <td>iterations:</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="x">x</td>
+                <td id="v">v</td>
+                <td id="a">a</td>
+                <td id="iterations">a</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="inputs-container">
+        <!-- <label>P</label>
+        <input type="range" min="-10" max="0" step="0.1" value="0" id="P-slider">
+        <p id="P-slider-value"></p> -->
+
+        <!-- <label>D</label>
+        <input type="range" min="-10" max="0" step="0.1" value="0" id="D-slider">
+        <p id="D-slider-value"></p> -->
+
+        <!-- <label for="D-slider">D</label>
+        <input disabled type="range" min="-0.3" max="0" step="0.01" value="0" id="D-slider"> -->
+
+        <button id="start-button">Start</button>
+    </div>
+
+    <div id="point">
+
+    </div>
+
+    <div id="origin"></div>
+
+    <canvas id="canvas" width="1200px" height="600px"></canvas>
+</body>
+</html>
